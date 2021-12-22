@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "/articles", to: "articles#index"
+  root "articles#index"
 
-  # О подробностях DSL, доступного в этом файле, написано в http://rusrails.ru/rails-routing
+  resources :articles do
+    resources :comments
+  end
 end
